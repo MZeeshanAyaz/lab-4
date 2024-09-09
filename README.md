@@ -31,3 +31,30 @@ if(chara=='a'||chara=='A'){
 	}
 return 0;	
 }
+#include<stdio.h>
+int main()
+{
+float a,b;
+char oper ;
+	printf("Enter a =");
+	scanf("%f",&a);
+	
+	printf("Enter b =");
+	scanf(" %f",&b);
+	
+	printf("Enter operator(+,-,*,/)= ");
+	scanf(" %c",&oper);
+	
+	switch(oper){
+		case '+' : printf("%.1f+%.1f=%.1f",a,b, a+b );
+		break;
+		case '-' : printf("%.1f - %.1f = %.1f",a,b,a-b);
+		break;
+		case '*' : printf("%.1f*%.1f=%.1f",a,b,a*b);
+		break;
+		case '/' : printf("%.1f/%.1f=%.3f",a,b,a/b);
+		break;
+		default : printf("Error");
+	}
+	
+}
