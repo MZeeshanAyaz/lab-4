@@ -58,3 +58,39 @@ char oper ;
 	}
 	
 }
+
+
+
+
+#include<stdio.h>
+int main ()
+{
+	float T,TA,NA;//I(income)T(tax)TA(TAX AMOUNT)NA(NET AMOUNT) 
+	int I;
+	printf("enter income =");
+	scanf("%d",&I);
+	if(I<=250000){
+		printf("No Tax");
+	}
+	else if(I>=250001&&I<=500000){
+		printf("tax is 5%\n");
+		TA=(I*5)/100;
+		printf("Total tax on income =%.2f\n",TA);
+		NA=I-TA;
+		printf("Net Amount=%.2f \n",NA);
+		}else if (I>=500001&&I<=100000){
+			printf("tax is 20%");
+		
+		TA=(I*20)/100;
+		printf("Total tax on income =%.2f\n",TA);
+		NA=I-TA;
+		printf("Net Amount=%.2f \n",NA);
+		}else{
+			printf("tax is 30%");
+			
+		TA=(I*30)/100;
+		printf("Total tax on income =%.2f\n",TA);
+		NA=I-TA;
+		printf("Net Amount=%.2f",NA);
+		}
+}
