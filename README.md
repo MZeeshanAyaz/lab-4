@@ -70,27 +70,31 @@ int main ()
 	printf("enter income =");
 	scanf("%d",&I);
 	if(I<=250000){
-		printf("No Tax");
+		printf("No Tax \n");
+		printf("Total income is %d",I);
 	}
 	else if(I>=250001&&I<=500000){
-		printf("tax is 5%\n");
+		printf("tax is 5%%\n");
+		printf("Total income is %d\n",I);
 		TA=(I*5)/100;
 		printf("Total tax on income =%.2f\n",TA);
 		NA=I-TA;
-		printf("Net Amount=%.2f \n",NA);
+		printf("Net Amount after tax=%.2f \n",NA);
 		}else if (I>=500001&&I<=100000){
-			printf("tax is 20%");
+			printf("tax is 20%% \n");
+			printf("Total income is %d",I);
 		
 		TA=(I*20)/100;
 		printf("Total tax on income =%.2f\n",TA);
 		NA=I-TA;
-		printf("Net Amount=%.2f \n",NA);
+		printf("Net Amount after tax=%.2f \n",NA);
 		}else{
-			printf("tax is 30%");
+			printf("tax is 30%% \n");
+			printf("Total income is %d\n",I);
 			
 		TA=(I*30)/100;
 		printf("Total tax on income =%.2f\n",TA);
 		NA=I-TA;
-		printf("Net Amount=%.2f",NA);
+		printf("Net Amount after tax=%.2f",NA);
 		}
 }
