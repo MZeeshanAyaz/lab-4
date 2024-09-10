@@ -98,3 +98,27 @@ int main ()
 		printf("Net Amount after tax=%.2f",NA);
 		}
 }
+
+#include<stdio.h>
+int main ()
+{
+	int TM ;
+	char grade;
+
+	printf("Enter total marks= ");
+	scanf("%d",&TM);
+	switch(grade){
+		case 'A' : if(TM>=90&&TM<=100){printf("grade A");}
+			break;
+		case 'B' : if(TM>=70&&TM<90){printf("grade B");}
+			break;
+		case 'C ': if(TM>=70&&TM<80){printf("grade C");}
+			break;
+		case 'D' : if(TM>=60&&TM<70){printf("grade D");}
+			break;
+		case 'F' : if(TM<60&&TM>=0){printf("grade F");}
+			break;
+		default: printf("invalid total marks ");
+			
+			}
+}
