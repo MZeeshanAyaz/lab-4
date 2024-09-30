@@ -60,4 +60,21 @@ for(i=n;i>0;i--)
 printf("sum of Even numbers =%d\n",j);
 }
 _________________________________________________________________________
+#include<stdio.h>
+int main ()
+{
+int n;
+printf("Enter a number = ");
+scanf("%d",&n);
+
+int i=0;
+while(n!=0){
+	i=n%10+i*10;
+	
+	n=n/10;
+	}
+printf("reversed number =%d\n",i);	
+}
+_____________________________________________________________________________________
+
 
