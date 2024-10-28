@@ -61,3 +61,41 @@ int main ()
 	
 	
 }
+_______________________________________________________________________
+#include<stdio.h>
+#include<string.h>
+
+int main (){
+	
+	char name[2][50];
+	for(int i=0;i<2;i++)
+	{
+		printf("Enter %d names =", i+1);
+		gets(name[i]);
+				
+	}
+	int verify = 1;
+	 
+	for(int i=0;i < 2;i++){
+		int leng = strlen(name[i]);
+		for(int j = 0; j <  (leng/2);j++){
+			if(name[i][j] != name[i][leng-j-1]){
+			verify = 0;
+			break;
+		}
+		
+		}
+        if(verify == 1){
+			printf("yes it is a plaindrom\n");
+		}else{
+			printf("not a plaindrome\n");
+		}		
+	}
+		
+	
+	
+
+	
+
+
+}
