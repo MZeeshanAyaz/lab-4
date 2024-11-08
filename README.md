@@ -91,7 +91,38 @@ int main (){
 			printf("not a plaindrome\n");
 		}		
 	}
+_____________________________________________________________________________________________________________________
+#include<stdio.h>
+void menu(){
+	int options;
+	int subops;
+	printf("1.Apitizers\n2.Burgers\n3.pizzas\n4.Drinks\n");
+	switch(options){
+		case 1 : prinf("1.French Fries\n2.Cheese Sticks\n3.Wings\n4.Stuffed roll");
+		switch(subops){
+					case 1 : 
+			
+		}
 		
+	}
+}
+int main(){
+	printf()
+	int options;
+	while(1){
+		printf("1.user interface \n2. admin interface\n3.Quit");
+	switch(options){
+		case 1 : 
+		
+		break;
+		case 2 :
+			
+		break;
+		case 3 :
+			printf("Quiting the program ")
+	} 
+	}
+}
 	
 	
 
