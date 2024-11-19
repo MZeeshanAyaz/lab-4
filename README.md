@@ -216,75 +216,61 @@ int main (){
 
 }
 ____________________________________________________________________
-#include <stdio.h>
-#include <stdlib.h> 
-#include <string.h>
-#include <math.h>
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
 
-int orderID = 1;
 int options;
 int quantity;
 int total = 0;
 
+// File pointer for saving the bill
+FILE *billFile;
+
 void mainmenu();
 void pizzassizes();
 void pizzasflavours();
-void normalfalvours();
+void normalflavours();
 void specialflavours();
-
-void clear_screen() {
-    #ifdef _WIN32
-        system("cls");  
-    #else
-        system("clear");
-    #endif
-}
+void viewBill();
+void saveToFile(const char *item, int quantity, int price);
 
 int main() {
     mainmenu();
-    pizzassizes();
-    pizzasflavours();
-    specialflavours();
-    normalfalvours();
 }
 
-void normalfalvours() {
+void normalflavours() {
     while (1) {
-        printf("1.Chicken Tikka(spicy)\n2.Chicken Supreme(spicy)\n3.Chicken Fajita(mild spicy)\n4.Fajita Sicilian(spicy)\n5.Veggie Lover(non spicy)\n6.Cheese Lover(non spicy)\n7.Back\n");
-        printf("Enter your choice :");
+        printf("1.Chicken Tikka(spicy)\n2.Chicken Supreme(spicy)\n3.Chicken Fajita(mild spicy)\n");
+        printf("4.Fajita Sicilian(spicy)\n5.Veggie Lover(non spicy)\n6.Cheese Lover(non spicy)\n7.Back\n");
+        printf("Enter your choice : ");
         scanf("%d", &options);
-        clear_screen(); 
+        system("cls");
         switch (options) {
             case 1:
-                printf("Chicken Tikka\n");
-                pizzassizes();
-                break;
+                saveToFile("Chicken Tikka", 1, 0); // Flavour name only, price is handled elsewhere
+                return;
             case 2:
-                printf("Chicken Supreme\n");
-                pizzassizes();
-                break;
+                saveToFile("Chicken Supreme", 1, 0);
+                return;
             case 3:
-                printf("Chicken Fajita\n");
-                pizzassizes();
-                break;
+                saveToFile("Chicken Fajita", 1, 0);
+                return;
             case 4:
-                printf("Fajita Sicilian\n");
-                pizzassizes();
-                break;
+                saveToFile("Fajita Sicilian", 1, 0);
+                return;
             case 5:
-                printf("Veggie Lover\n");
-                pizzassizes();
-                break;
+                saveToFile("Veggie Lover", 1, 0);
+                return;
             case 6:
-                printf("Cheese Lover\n");
-                pizzassizes();
-                break;
+                saveToFile("Cheese Lover", 1, 0);
+                return;
             case 7:
-                clear_screen();
+                system("cls");
                 pizzasflavours();
-                break;
+                return;
             default:
-                printf("Error : Please enter options from 1-7\n");
+                printf("Error: Please enter options from 1-7\n");
                 break;
         }
     }
@@ -292,33 +278,30 @@ void normalfalvours() {
 
 void specialflavours() {
     while (1) {
-        printf("1.Ranch(spicy)\n2.Sirracha(spicy)\n3.Creamy Tikka(mild spicy)\n4.Chipotle(mild spicy)\n5.Back\n");
-        printf("Enter your choice :");
+        printf("1.Ranch(spicy)\n2.Sirracha(spicy)\n3.Creamy Tikka(mild spicy)\n");
+        printf("4.Chipotle(mild spicy)\n5.Back\n");
+        printf("Enter your choice : ");
         scanf("%d", &options);
-        clear_screen(); 
+        system("cls");
         switch (options) {
             case 1:
-                printf("Ranch\n");
-
-                break;
+                saveToFile("Ranch", 1, 0);
+                return;
             case 2:
-                printf("Sirracha\n");
-
-                break;
+                saveToFile("Sirracha", 1, 0);
+                return;
             case 3:
-                printf("Creamy Tikka\n");
-
-                break;
+                saveToFile("Creamy Tikka", 1, 0);
+                return;
             case 4:
-                printf("Chipotle\n");
-
-                break;
+                saveToFile("Chipotle", 1, 0);
+                return;
             case 5:
-                clear_screen();
+                system("cls");
                 pizzasflavours();
-                break;
+                return;
             default:
-                printf("Error : Please enter options from 1-5\n");
+                printf("Error: Please enter options from 1-5\n");
                 break;
         }
     }
@@ -327,22 +310,22 @@ void specialflavours() {
 void pizzasflavours() {
     while (1) {
         printf("1.Special Flavours\n2.Normal flavours\n3.Back\n");
-        printf("Enter your choice :");
+        printf("Enter your choice : ");
         scanf("%d", &options);
-        clear_screen(); 
+        system("cls");
         switch (options) {
             case 1:
                 specialflavours();
                 break;
             case 2:
-                normalfalvours();
+                normalflavours();
                 break;
             case 3:
-                clear_screen();
+                system("cls");
                 pizzassizes();
-                break;
+                return;
             default:
-                printf("Error : Please Enter options from 1-3\n");
+                printf("Error: Please enter options from 1-3\n");
                 break;
         }
     }
@@ -350,24 +333,31 @@ void pizzasflavours() {
 
 void mainmenu() {
     while (1) {
-        printf("1.Pizzas\n2.Burgers\n3.Sidelines\n4.Drinks\n5.view Bill\n6.Quit\n");
-        printf("Enter your choice :");
+        printf("1.Pizzas\n2.Burgers\n3.Sidelines\n4.Drinks\n5.View Bill\n6.Quit\n");
+        printf("Enter your choice : ");
         scanf("%d", &options);
-        clear_screen(); 
+        system("cls");
         switch (options) {
             case 1:
                 pizzassizes();
                 break;
             case 2:
+                printf("Burgers are not implemented yet!\n");
                 break;
             case 3:
+                printf("Sidelines are not implemented yet!\n");
                 break;
             case 4:
+                printf("Drinks are not implemented yet!\n");
                 break;
             case 5:
+                viewBill();
                 break;
             case 6:
+                printf("Exiting... Thank you!\n");
                 return;
+            default:
+                printf("Error: Please select a valid option\n");
                 break;
         }
     }
@@ -378,54 +368,80 @@ void pizzassizes() {
         printf("1.Small\t\tRs 450\n2.Regular\tRs 600\n3.Large\t\tRs 900\n4.Jumbo\t\tRs 1200\n5.Back\n");
         printf("Enter your choice : ");
         scanf("%d", &options);
-        system("cls");  
+        system("cls");
 
         switch (options) {
             case 1:
-                printf("Enter quantity = ");
+                printf("Enter quantity: ");
                 scanf("%d", &quantity);
-
                 for (int i = 0; i < quantity; i++) {
-                    printf("\nFor Pizza %d:\n", i + 1);
-                    pizzasflavours();  
+                    printf("\nSelect flavour for Pizza %d:\n", i + 1);
+                    pizzasflavours();
                 }
-                total += 450 * quantity;
+                saveToFile("Small Pizza", quantity, 450);
                 break;
             case 2:
-                printf("Enter quantity = ");
+                printf("Enter quantity: ");
                 scanf("%d", &quantity);
                 for (int i = 0; i < quantity; i++) {
-                    printf("\nFor Pizza %d:\n", i + 1);
-                    pizzasflavours();  
+                    printf("\nSelect flavour for Pizza %d:\n", i + 1);
+                    pizzasflavours();
                 }
-                total += 600 * quantity;
+                saveToFile("Regular Pizza", quantity, 600);
                 break;
             case 3:
-                printf("Enter quantity = ");
+                printf("Enter quantity: ");
                 scanf("%d", &quantity);
                 for (int i = 0; i < quantity; i++) {
-                    printf("\nFor Pizza %d:\n", i + 1);
-                    pizzasflavours();  
+                    printf("\nSelect flavour for Pizza %d:\n", i + 1);
+                    pizzasflavours();
                 }
-                total += 900 * quantity;
+                saveToFile("Large Pizza", quantity, 900);
                 break;
             case 4:
-                printf("Enter quantity = ");
+                printf("Enter quantity: ");
                 scanf("%d", &quantity);
                 for (int i = 0; i < quantity; i++) {
-                    printf("\nFor Pizza %d:\n", i + 1);
-                    pizzasflavours();  
+                    printf("\nSelect flavour for Pizza %d:\n", i + 1);
+                    pizzasflavours();
                 }
-                total += 1200 * quantity;
+                saveToFile("Jumbo Pizza", quantity, 1200);
                 break;
             case 5:
                 system("cls");
                 mainmenu();
-                break;
+                return;
             default:
-                printf("Error: Please Enter options from 1-5\n");
+                printf("Error: Please enter options from 1-5\n");
                 break;
         }
     }
 }
-																																																																																																																																							
+
+void saveToFile(const char *item, int quantity, int price) {
+    total += price * quantity;
+    billFile = fopen("bill.txt", "a");
+    if (billFile == NULL) {
+        printf("Error opening file!\n");
+        return;
+    }
+    fprintf(billFile, "%s x%d = Rs %d\n", item, quantity, price * quantity);
+    fclose(billFile);
+}
+
+void viewBill() {
+    char line[256];
+    billFile = fopen("bill.txt", "r");
+    if (billFile == NULL) {
+        printf("No items in the bill yet.\n");
+        return;
+    }
+
+    printf("----- Your Bill -----\n");
+    while (fgets(line, sizeof(line), billFile)) {
+        printf("%s", line);
+    }
+    fclose(billFile);
+    printf("Total Amount: Rs %d\n", total);
+    printf("---------------------\n");
+}
